@@ -1,25 +1,41 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Input from './Input/Input'
+import OutPut from './OutPut/OutPut'
 class App extends Component {
+ constructor(props){
+   super(props);
+   this.state ={
+    username: 'Aaravi',
+    country: 'India'
+   }
+ }
+
+ changeIUserName = (event)=>{
+this.setState({
+  username: event.target.value
+});
+ }
   render() {
+    const style = {
+      backgroundColor: 'green'
+    };
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <Input
+      textchange={this.changeIUserName}
+      username={this.state.username} 
+      />
+        <OutPut
+          input1='Input text 1 p1'
+          input2='Input text 2 p1'
+          username={this.state.username} />
+
+        <OutPut
+          input1='Input text 1 p2'
+          input2='Input text 2 p2'
+          username={this.state.username}  />
       </div>
     );
   }
