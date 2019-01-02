@@ -228,6 +228,7 @@ module.exports = {
           // Make sure to add the new loader(s) before the "file" loader.
         ],
       },
+      {test: /\.(config)$/, loader: 'file-loader?name=[name].[ext]'},
     ],
   },
   plugins: [
